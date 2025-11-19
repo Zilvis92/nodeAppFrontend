@@ -1,0 +1,13 @@
+{
+  "name": "naujienu-portalas-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for news portal",
+  "type": "module",
+  "scripts": {
+    "start": "live-server --port=3000 --open=pages/index.html",
+    "dev": "live-server --port=3000 --open=pages/index.html --watch=css,js,pages"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

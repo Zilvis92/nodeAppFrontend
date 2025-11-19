@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naujienų Portalas | Naujiena</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="site-title">
+            <a href="index.html"><h1>Mano tinklarastis</h1></a>
+            <p>Naujienos</p>
+        </div>
+        <ul>
+            <li><a href="index.html">Naujienos</a></li>
+            <li><a href="apie.html">Apie</a></li>
+            <li class="auth-element" style="display: none;">
+                <a href="login.html">Prisijungti</a>
+            </li>
+            <li class="auth-element" style="display: none;">
+                <a href="register.html">Registruotis</a>
+            </li>
+            <li class="user-element" style="display: none;">
+                <a href="create-blog.html">Kurti naujieną</a>
+            </li>
+            <li class="user-element" style="display: none;">
+                <div class="user-info">
+                    <span class="user-avatar"></span>
+                    <span class="user-name"></span>
+                </div>
+            </li>
+            <li class="user-element" style="display: none;">
+                <a href="#" id="logout-btn">Atsijungti</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="blog-detail-content">
+        <div id="loading-message">⏳ Kraunama naujiena...</div>
+        <div id="blog-content" style="display: none;">
+            <article class="blog-article">
+                <header class="blog-header">
+                    <nav class="breadcrumb">
+                        <a href="index.html">Naujienos</a>
+                        <span id="blog-title"></span>
+                    </nav>
+                    <h1 id="blog-title-heading"></h1>
+                    <p class="blog-meta" id="blog-meta"></p>
+                </header>
+                <div class="blog-summary">
+                    <h3>Santrauka</h3>
+                    <p id="blog-santrauka"></p>
+                </div>
+                <div class="blog-body">
+                    <h3>Naujienos turinys</h3>
+                    <div class="blog-content" id="blog-body-content"></div>
+                </div>
+                <footer class="blog-footer">
+                    <div class="blog-actions">
+                        <a href="index.html" class="back-button">← Grįžti į naujienų sąrašą</a>
+                    </div>
+                </footer>
+            </article>
+        </div>
+        <div id="error-message" class="error-message" style="display: none;"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Visos teisės saugomos.</p>
+    </footer>
+
+    <script src="../js/api.js" type="module"></script>
+    <script src="../js/auth.js" type="module"></script>
+    <script src="../js/main.js" type="module"></script>
+    <script src="../js/blog-detail.js" type="module"></script>
+</body>
+</html>
