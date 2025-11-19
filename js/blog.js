@@ -37,7 +37,7 @@ class BlogManager {
         }
 
         container.innerHTML = blogs.map(blog => `
-            <div class="blog-card">
+            <div class="blog-card" data-blog-id="${blog._id}">
                 <div class="blog-card-content">
                     <h3 class="title">
                         <a href="blog.html?id=${blog._id}" class="blog-link">
@@ -51,9 +51,57 @@ class BlogManager {
                             Skaityti daugiau →
                         </a>
                     </div>
+                    ${this.renderBlogActions(blog)}
                 </div>
             </div>
         `).join('');
+
+        this.addEventListeners();
+    }
+
+    renderBlogActions(blog) {
+        if (!authManager.isAuthenticated()) {
+            return '';
+        }
+
+        // Čia galėtumėte pridėti patikrinimą ar vartotojas yra naujienos autorius
+        // Kol kas rodysime mygtukus visiems prisijungusiems vartotojams
+        return `
+            <div class="blog-actions">
+                <a href="edit-blog.html?id=${blog._id}" class="edit-button">Redaguoti</a>
+                <button class="delete-button" data-blog-id="${blog._id}">Ištrinti</button>
+            </div>
+        `;
+    }
+
+    addEventListeners() {
+        // Trinimo mygtukų event listeneriai
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const blogId = button.getAttribute('data-blog-id');
+                this.deleteBlog(blogId);
+            });
+        });
+    }
+
+    async deleteBlog(blogId) {
+        if (!confirm('Ar tikrai norite ištrinti šią naujieną?')) {
+            return;
+        }
+
+        try {
+            const result = await this.api.deleteBlog(blogId);
+            if (result.success) {
+                alert('Naujiena sėkmingai ištrinta!');
+                this.loadBlogs(); // Perkrauname sąrašą
+            } else {
+                alert('Klaida: ' + result.error);
+            }
+        } catch (error) {
+            alert('Įvyko klaida: ' + error.message);
+        }
     }
 
     showError(message) {

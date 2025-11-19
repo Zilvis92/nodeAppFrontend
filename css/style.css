@@ -451,3 +451,77 @@ footer {
     font-size: 0.8rem;
   }
 }
+
+/* Blog action buttons */
+.blog-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.edit-button, .delete-button {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.edit-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Form actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.cancel-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
